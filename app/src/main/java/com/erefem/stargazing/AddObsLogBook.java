@@ -50,14 +50,13 @@ public class AddObsLogBook extends AppCompatActivity {
             et_instrument,
             et_magnification,
             et_filter,
-            et_comment;
-    TextView
-            tv_latitude,
-            tv_longitude;
-    RadioGroup
-            rg_seeing;
+            et_comment,
+
+            et_latitude,
+            et_longitude;
+
     RadioButton
-            exeptional,
+            exceptional,
             good,
             ok,
             poor,
@@ -71,6 +70,9 @@ public class AddObsLogBook extends AppCompatActivity {
 
     private EditText
             et_date;
+
+    RadioGroup
+            rg_seeing;
 
     private AppDatabase database;
     private int uid = 0;
@@ -102,17 +104,17 @@ public class AddObsLogBook extends AppCompatActivity {
                 findViewById(R.id.et_object_name);
         et_observer=
                 findViewById(R.id.et_observer);
-        tv_latitude=
-                findViewById(R.id.tv_latitude);
-        tv_longitude=
-                findViewById(R.id.tv_longitude);
+        et_latitude=
+                findViewById(R.id.et_latitude);
+        et_longitude=
+                findViewById(R.id.et_longitude);
         et_date=
                 findViewById(R.id.et_date);
         et_time=
                 findViewById(R.id.et_time);
         rg_seeing=
                 findViewById(R.id.rg_seeing);
-        exeptional=
+        exceptional=
                 findViewById(R.id.rb_seeing_exceptional);
         good=
                 findViewById(R.id.rb_seeing_good);
@@ -144,11 +146,11 @@ public class AddObsLogBook extends AppCompatActivity {
                 Logbook logbook = database.logbookDao().get(uid);
                 et_object_name.setText(logbook.Object);
                 et_observer.setText(logbook.Observer);
-                tv_latitude.setText(logbook.latitude);
-                tv_longitude.setText(logbook.longitude);
+                et_latitude.setText(logbook.latitude);
+                et_longitude.setText(logbook.longitude);
                 et_date.setText(logbook.date);
                 et_time.setText(logbook.time);
-                exeptional.setText(logbook.seeing);
+                exceptional.setText(logbook.seeing);
                 good.setText(logbook.seeing);
                 ok.setText(logbook.seeing);
                 poor.setText(logbook.seeing);
@@ -166,9 +168,9 @@ public class AddObsLogBook extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isEdit){
-                    database.logbookDao().update(uid,et_object_name.getText().toString(), et_observer.getText().toString(), et_date.getText().toString(), et_time.getText().toString(), et_instrument.getText().toString(),et_filter.getText().toString(),et_magnification.getText().toString(), et_comment.getText().toString());
+                    database.logbookDao().update(uid,et_object_name.getText().toString(), et_observer.getText().toString(), et_latitude.getText().toString(), et_longitude.getText().toString(), et_date.getText().toString(), et_time.getText().toString(), exceptional.getText().toString(), et_instrument.getText().toString(), et_magnification.getText().toString(), et_filter.getText().toString(), et_comment.getText().toString());
                 }else{
-                    database.logbookDao().insertAll(et_object_name.getText().toString(), et_observer.getText().toString(), et_date.getText().toString(), et_time.getText().toString(), et_instrument.getText().toString(),et_filter.getText().toString(),et_magnification.getText().toString(), et_comment.getText().toString());
+                    database.logbookDao().insertAll(et_object_name.getText().toString(), et_observer.getText().toString(), et_latitude.getText().toString(), et_longitude.getText().toString(), et_date.getText().toString(), et_time.getText().toString(),exceptional.getText().toString(), et_instrument.getText().toString(), et_magnification.getText().toString(), et_filter.getText().toString(), et_comment.getText().toString());
                 }
 
                 finish();
@@ -240,7 +242,7 @@ public class AddObsLogBook extends AppCompatActivity {
 
         obslogBookPageEvt(SUtils.getString(et_object_name),
                 SUtils.getString(et_observer),
-                SUtils.getString(tv_latitude) + "," + SUtils.getString(tv_longitude));
+                SUtils.getString(et_latitude) + "," + SUtils.getString(et_longitude));
 
         btn_generate.setOnClickListener(view -> {
 
@@ -287,8 +289,8 @@ public class AddObsLogBook extends AppCompatActivity {
                         location=
                         task.getResult();
                 if (location != null) {
-                    tv_latitude.setText(String.valueOf(location.getLatitude()));
-                    tv_longitude.setText(String.valueOf(location.getLongitude()));
+                    et_latitude.setText(String.valueOf(location.getLatitude()));
+                    et_longitude.setText(String.valueOf(location.getLongitude()));
                 } else {
                     LocationRequest
                             locationRequest=
@@ -305,8 +307,8 @@ public class AddObsLogBook extends AppCompatActivity {
                                     Location
                                             location1=
                                             locationResult.getLastLocation();
-                                    tv_latitude.setText(String.valueOf(location1.getLatitude()));
-                                    tv_longitude.setText(String.valueOf(location1.getLongitude()));
+                                    et_latitude.setText(String.valueOf(location1.getLatitude()));
+                                    et_longitude.setText(String.valueOf(location1.getLongitude()));
                                 }
                             };
                     fusedLocationProviderClient.requestLocationUpdates(locationRequest,

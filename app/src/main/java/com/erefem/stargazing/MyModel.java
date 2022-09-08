@@ -3,7 +3,8 @@ package com.erefem.stargazing;
 public class MyModel {
     String object_name = "";
     String observer = "";
-    String coordinate = "";
+    String latitude = "";
+    String longitude = "";
     String date = "";
     String time = "";
     String seeing = "";
@@ -12,10 +13,11 @@ public class MyModel {
     String filter = "";
     String description = "";
 
-    public MyModel(String object_name, String observer, String coordinate, String date, String time, String seeing, String instrument, String magnification,String filter, String description) {
+    public MyModel(String object_name, String observer, String latitude, String longitude, String date, String time, String seeing, String instrument, String magnification,String filter, String description) {
         this.object_name = object_name;
         this.observer = observer;
-        this.coordinate = coordinate;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.date = date;
         this.time = time;
         this.seeing = seeing;
@@ -41,13 +43,14 @@ public class MyModel {
         this.observer = observer;
     }
 
-    public String getCoordinate() {
-        return coordinate;
+    public String getLatitude() {
+        return latitude;
+    }
+    public String getLongitude() {
+        return longitude;
     }
 
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
-    }
+
 
     public String getDate() {
         return date;

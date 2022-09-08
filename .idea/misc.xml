@@ -53,7 +53,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_obs_log_book.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_log_book.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/obs_log_book.xml" value="0.15" />
+        <entry key="app/src/main/res/layout/obs_log_book.xml" value="0.67" />
       </map>
     </option>
   </component>

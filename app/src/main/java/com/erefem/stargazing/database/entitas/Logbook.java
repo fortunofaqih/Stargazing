@@ -16,10 +16,11 @@ public class Logbook {
     public String latitude;
     public String date;
     public String time;
+    public String seeing;
     public String instrument;
     public String magnification;
     public String filter;
     public String comment;
-    public String seeing;
+
 
 }

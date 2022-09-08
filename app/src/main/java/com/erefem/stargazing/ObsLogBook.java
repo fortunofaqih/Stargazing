@@ -93,9 +93,8 @@ public class  ObsLogBook extends AppCompatActivity {
                             case 1:
                                 Logbook logbook = list.get(position);
                                 database.logbookDao().delete(logbook);
-                                onStart();
-
                                 Toast.makeText(getApplicationContext(), "Data has been delete (Please Refresh)", Toast.LENGTH_SHORT).show();
+                                list.clear();
                                 break;
                         }
                     }
@@ -125,14 +124,6 @@ public class  ObsLogBook extends AppCompatActivity {
 
 
     }
-    @SuppressLint("NotifyDataSetChanged")
-    @Override
-    protected void onStart(){
-        super.onStart();
-        list.addAll(database.logbookDao().getAll());
-        logbookAdapter.notifyDataSetChanged();
-    }
-
-
+    
 }
 

@@ -28,7 +28,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.tv_object_name.setText(list.get(position).getObject_name());
         holder.tv_observer.setText(list.get(position).getObserver());
-        holder.tv_coordinate.setText(list.get(position).getCoordinate());
+        holder.tv_latitude.setText(list.get(position).getLatitude());
+        holder.tv_longitude.setText(list.get(position).getLongitude());
         holder.tv_date.setText(list.get(position).getDate());
         holder.tv_time.setText(list.get(position).getTime());
         holder.tv_seeing.setText(list.get(position).getSeeing());

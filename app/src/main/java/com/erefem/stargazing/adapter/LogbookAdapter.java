@@ -43,8 +43,8 @@ public class LogbookAdapter extends RecyclerView.Adapter<LogbookAdapter.ViewAdap
     public void onBindViewHolder(@NonNull ViewAdapter holder, int position) {
         holder.Object.setText(list.get(position).Object);
         holder.Observer.setText(list.get(position).Observer);
-        //holder.latitude.setText(String.valueOf(position));
-        //holder.longitude.setText(String.valueOf(position));
+        holder.latitude.setText(list.get(position).latitude);
+        holder.longitude.setText(list.get(position).longitude);
         holder.date.setText(list.get(position).date);
         holder.time.setText(list.get(position).time);
         holder.seeing.setText(list.get(position).seeing);
@@ -66,8 +66,8 @@ public class LogbookAdapter extends RecyclerView.Adapter<LogbookAdapter.ViewAdap
             super(itemView);
             Object = itemView.findViewById(R.id.tv_object_name);
             Observer = itemView.findViewById(R.id.tv_observer);
-            //latitude = itemView.findViewById(R.id.tv_latitude);
-            //longitude = itemView.findViewById(R.id.tv_longitude);
+            latitude = itemView.findViewById(R.id.tv_latitude);
+            longitude = itemView.findViewById(R.id.tv_longitude);
             date = itemView.findViewById(R.id.tv_date);
             time = itemView.findViewById(R.id.tv_time);
             seeing = itemView.findViewById(R.id.tv_seeing);
